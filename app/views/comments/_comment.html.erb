@@ -8,11 +8,13 @@
     <strong>Comment:</strong>
     <%= comment.body %>
   </p>
-
+  <% if user_signed_in? %> 
   <p class="btn btn-danger">
     <%= link_to 'Destroy Comment', [comment.article, comment], data: {
                   turbo_method: :delete,
                   turbo_confirm: 'Are you sure?'
                 } %>
   </p>
+  <% else %>
+  <% end %>
 <% end %>

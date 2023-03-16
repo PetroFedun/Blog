@@ -32,13 +32,30 @@ a, a:hover, a:active {
 }
 
 #menu {
-  li:not(:nth-last-child(1)) {
-    padding-right: 20px;
+  li {
+    padding-right: auto;
+    padding-top: auto;
+    margin-right: 20px;
   }
   a:hover {
     color: rgb(240, 240, 240);
     text-decoration: none;
   }
+}
+
+/* Dropdown menu */
+
+.dropdown-menu.active {
+  display: block;
+  margin-left: -80px;
+}
+
+.btn-dropdown {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 9px;
+  margin-right: 9px;
 }
 
 /* footer */
@@ -67,7 +84,11 @@ footer {
   }
 }
 
-#feedbackform{
+#card-flex {
+  justify-content: flex-start;
+}
+
+#feedbackform {
   width: 75%;
 }
 
@@ -84,15 +105,15 @@ footer {
   font-size: 20px;
 }
 
-#formsign{
+#formsign {
   width: 50%;
 }
 
-#addcommentform{
+#addcommentform {
   width: 45%;
 }
 
-#comment{
+#comment {
   padding-top: 50px;
   padding-right: 12px;
   flex-direction: row-reverse;
@@ -111,13 +132,19 @@ footer {
   width: 50%;
 }
 
-#card{
+#card {
   width: 24rem;
   box-sizing: content-box;
 }
 
 /* Mediaquery */
 
+@media (max-width: 1400px) {
+  #card-flex {
+    justify-content: space-around;
+  }
+
+}
 @media (max-width: 991px) {
   #contact {
     padding: 10px;
@@ -155,5 +182,23 @@ footer {
     margin-bottom: 1rem;
     margin-top: 1rem;
    }
+  }
+}
+
+@media (max-width: 800px) {
+  footer {
+    small {
+      display: block;
+      float: none;
+      margin-bottom: 1em;
+    }
+    ul {
+      float: none;
+      padding: 0;
+      li {
+        float: none;
+        margin-left: 0;
+      }
+    }
   }
 }

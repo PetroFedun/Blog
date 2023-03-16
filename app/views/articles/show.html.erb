@@ -6,6 +6,7 @@
 
 <p class="h-auto mx-auto lh-lg py-2 px-1" id="articlebody"><%= @article.body %></p>
 
+<% if user_signed_in? %> 
 <ul>
   <li class="btn btn-primary"><%= link_to "Edit", edit_article_path(@article) %></li>
   <li class="btn btn-danger">
@@ -16,6 +17,8 @@
                          } %>
   </li>
 </ul>
+<% else %>
+<% end %>
 
 <div class="row" id="comment">
   <div class="col-12 col-lg-6 mb-3 mx-auto"> 

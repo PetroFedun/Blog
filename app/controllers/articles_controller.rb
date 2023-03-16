@@ -13,10 +13,6 @@ class ArticlesController < ApplicationController
     render 'static_pages/contact'
   end
 
-  def sign
-    render 'static_pages/sign'
-  end
-
   def about
     render 'static_pages/about'
   end  
