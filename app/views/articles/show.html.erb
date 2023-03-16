@@ -1,6 +1,10 @@
-<h1 class="mb-5"><%= @article.title %></h1>
+<% provide(:title, @article.title) %>
 
-<p class="w-75 h-auto border lh-lg py-2 px-1"><%= @article.body %></p>
+<h1 class="my-5 border-bottom"><%= @article.title %></h1>
+
+<img src="<%= asset_path('panda.jpg') %>" class="card-img-top mx-auto" id="showimg" alt="...">
+
+<p class="h-auto mx-auto lh-lg py-2 px-1" id="articlebody"><%= @article.body %></p>
 
 <ul>
   <li class="btn btn-primary"><%= link_to "Edit", edit_article_path(@article) %></li>
@@ -13,14 +17,14 @@
   </li>
 </ul>
 
-<div class="row flex-row-reverse" style="padding-top: 50px; padding-right: 12">
+<div class="row" id="comment">
   <div class="col-12 col-lg-6 mb-3 mx-auto"> 
-    <h2>Comments</h2>
+    <h2 class="border-bottom">Comments</h2>
     <%= render @article.comments %> 
   </div> 
 
-  <div class="col-12 col-lg-6 mb-3 mx-auto"> 
-    <h2>Add a comment</h2> 
+  <div class="col-12 col-lg-6 mb-3 mx-auto" id="addcommentform"> 
+    <h2 class="border-bottom">Add a comment</h2> 
     <%= render 'comments/form' %> 
   </div>
 </div>

@@ -1,19 +1,21 @@
+<div class="mt-5 border p-3 mx-auto">
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
   <div>
     <%= form.label :commenter, for:"exampleInputEmail1", class:"form-label" %>
-    <%= form.text_field :commenter, class:"form-control", id:"exampleInputEmail1" %>
+    <%= form.text_field :commenter, class:"form-control bg-light", id:"exampleInputEmail1" %>
   </div>
   <div>
     <%= form.label :body, for:"exampleFormControlTextarea1", class:"form-label" %>
-    <%= form.text_area :body, class:"form-control", id:"exampleFormControlTextarea1", rows:"5" %>
+    <%= form.text_area :body, class:"form-control bg-light", id:"exampleFormControlTextarea1", rows:"5" %>
   </div>
 
   <div>
     <%= form.label :status %>
-    <%= form.select(:status, %w[public private archived], {selected: params[:status]}, {class: 'form-select'}) %>
+    <%= form.select(:status, %w[public private archived], {selected: params[:status]}, {class: 'form-select bg-light'}) %>
   </div>
 
   <div>
     <%= form.submit class:"btn btn-primary mt-3" %>
   </div>
 <% end %>
+</div>

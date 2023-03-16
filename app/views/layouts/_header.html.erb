@@ -1,5 +1,12 @@
-<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-    <span class="fs-4">Blog</span>
-  </a>
+<header class="navbar navbar-fixed-top navbar-inverse bg-primary">
+  <div class="container">
+    <%= link_to "blog", root_path, id: "logo" %>
+
+    <ul class="nav navbar-right" id="menu">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Help", static_pages_help_path %></li>
+      <li><%= link_to "Contact", static_pages_contact_path %></li>
+      <li class="btn btn-danger"><%= link_to "Sign in", static_pages_sign_path %></li>
+    </ul>
+  </div>
 </header>

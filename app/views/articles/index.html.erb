@@ -1,8 +1,10 @@
-<h1 class="text-center mb-4">Articles</h1>
+<% provide(:title, "Articles") %>
+
+<h1 class="title">Articles</h1>
 
 <div class="row justify-content-start m-2">
   <% @articles.each do |article| %>
-    <div class="card col-12 col-sm-6 mb-4 m-2 mx-auto" style="width: 24rem; box-sizing: content-box;">
+    <div class="card col-12 col-sm-6 mb-4 m-2 mx-auto" id="card">
       <%= link_to article do %>
         <img src="<%= asset_path('panda.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
       <% end %>

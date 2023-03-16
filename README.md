@@ -1,24 +1,26 @@
-# README
+# Blog on Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting started
 
-Things you may want to cover:
+To get started with the app, clone the repo and then run:
 
-* Ruby version
+```
+$ bundle install
+```
 
-* System dependencies
+Next, migrate the database:
 
-* Configuration
+```
+$ rails db:migrate
+```
 
-* Database creation
+You be ready to run the app in a local server:
 
-* Database initialization
+```
+$ rails server
+```
+## Description
 
-* How to run the test suite
+A simple Blog where you can create, edit, delete, and view list posts. On the "show" page, you can add comments to post.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...

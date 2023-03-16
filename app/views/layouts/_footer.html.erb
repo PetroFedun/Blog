@@ -1,3 +1,9 @@
-<footer class="text-muted py-5 container">
-  <p class="mb-1">© <%= Date.today.year %> Blog. All rights reserved.</p>
+<footer class="text-muted container">
+  <p>© <%= Date.today.year %> Blog. All rights reserved.</p>
+  <nav>
+    <ul>
+      <li><%= link_to "About",   static_pages_about_path %></li>
+      <li><%= link_to "Contact", static_pages_contact_path %></li>
+    </ul>
+  </nav>
 </footer>
