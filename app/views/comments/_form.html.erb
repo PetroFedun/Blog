@@ -10,6 +10,11 @@
     </div>
 
     <div>
+      <%= form.label :status %>
+      <%= form.select(:status, %w[public private archived], {selected: params[:status]}, {class: 'form-select bg-light'}) %>
+    </div>
+  
+    <div>
       <%= form.submit class:"btn btn-primary mt-3" %>
     </div>
   <% end %>
