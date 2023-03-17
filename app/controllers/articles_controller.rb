@@ -3,19 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-  end
-
-  def help
-    render 'static_pages/help'
-  end
-
-  def contact
-    render 'static_pages/contact'
-  end
-
-  def about
-    render 'static_pages/about'
-  end  
+  end 
 
   def show
     @article = Article.find(params[:id])
