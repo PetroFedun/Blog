@@ -3,19 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-  end
-
-  def help
-    render 'static_pages/help'
-  end
-
-  def contact
-    render 'static_pages/contact'
-  end
-
-  def about
-    render 'static_pages/about'
-  end  
+  end 
 
   def show
     @article = Article.find(params[:id])
@@ -59,6 +47,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, :status)
+    params.require(:article).permit(:title, :body,:status, :preview_img)
   end
 end

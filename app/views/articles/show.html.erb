@@ -2,7 +2,11 @@
 
 <h1 class="my-5 border-bottom"><%= @article.title %></h1>
 
-<img src="<%= asset_path('panda.jpg') %>" class="card-img-top mx-auto" id="showimg" alt="...">
+<%- if @article.preview_img.present? %>
+  <%= image_tag @article.preview_img, class:"card-img-top mx-auto", id:"showimg" %>
+<% else %>
+  <img src="<%= asset_path('panda.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
+<% end %>
 
 <p class="h-auto mx-auto lh-lg py-2 px-1" id="articlebody"><%= @article.body %></p>
 
