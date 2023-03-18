@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "articles#index"
+  get 'articles/my_article',to: 'articles#my_article'
   get 'static_pages/help',to: 'static_pages#help'
   get 'static_pages/contact',to: 'static_pages#contact'
   get 'static_pages/about',to: 'static_pages#about'
