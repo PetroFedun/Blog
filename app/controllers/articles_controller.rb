@@ -1,6 +1,4 @@
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: 'Petro', password: 'qwerty', only: :destroy
-
   def index
     @articles = Article.all
   end 
@@ -17,6 +15,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
+      flash[:success] = "Article created!"
       redirect_to @article
     else
       render :new, status: :unprocessable_entity
@@ -31,7 +30,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to @article, notice: "Successfully create"
+      flash[:success] = "Article update!"
+      redirect_to @article
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,6 +40,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
+    flash[:success] = "Article deleted!"
 
     redirect_to root_path, status: :see_other
   end
