@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment created!"
       redirect_to article_path(@article)
     else 
+      flash[:errors] = "Comment not created!"
       redirect_to article_path(@article)
      end
   end
