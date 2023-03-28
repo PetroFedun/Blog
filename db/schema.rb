@@ -47,6 +47,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_193620) do
     t.string "status"
     t.string "default"
     t.string "public"
+    t.datetime "published_at"
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["published_at"], name: "index_articles_on_published_at"
   end
 
   create_table "comments", force: :cascade do |t|
