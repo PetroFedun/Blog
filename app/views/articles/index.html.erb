@@ -1,19 +1,17 @@
 <% provide(:title, "Articles") %>
 
 <h1 class="title">Articles</h1>
-<div class="row justify" id="card-flex">
-  <% @articles.each do |article| %>
-    <div class="card col-12 col-sm-6 mb-4 m-2" id="card">
-
-      <%- if article.preview_img.present? %>
+<% if @articles.present? %>
+  <div class="row justify" id="card-flex">
+    <% @articles.each do |article| %>
+      <div class="card col-12 col-sm-6 mb-4 m-2" id="card">
         <%= link_to article do %>
-          <div class="text-center">
-          <%= image_tag article.preview_img, class:"card-img-top", style:"padding-top: 12px; max-height:230px; max-width:550px;" %>
-          </div>
-        <% end %>
-      <% else %>
-        <%= link_to article do %>
-         <img src="<%= asset_path('panda.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
+          <% if article.preview_img.present? %>
+            <div class="text-center">
+              <%= image_tag article.preview_img, class:"card-img-top", style:"padding-top: 12px; max-height:230px; max-width:550px;" %>
+            </div>
+        <% else %>
+          <img src="<%= asset_path('panda.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
         <% end %>
       <% end %>
 
@@ -27,3 +25,10 @@
     </div>
   <% end %>
 </div>
+
+<% else %>
+  <div class="bg-primary p-5 m-5 text-center text-white">
+    <h2>There is no article yet</h2>
+    <h2>Create a first article</h2>
+  </div>
+<% end %>
