@@ -34,7 +34,7 @@
     <% if @article.comments.present? %>
       <%= render @article.comments %> 
     <% else %>      
-    <p>This post dont have any comments<p>
+      <p>This post do'nt have any comments</p>
     <% end %>
   </div> 
 
@@ -45,7 +45,6 @@
     <%= render 'comments/form' %> 
   </div>
   <% else %>
-    <p">Only users with verified accounts can leave comments.</p>
+    <p>Only users with verified accounts can leave comments.</p>
   <% end %>
 </div>
-
