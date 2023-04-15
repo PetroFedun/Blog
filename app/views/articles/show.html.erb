@@ -25,7 +25,27 @@
                                turbo_confirm: "Are you sure?"
                              } %>
       </li>
-  <% end %>    
+  <% end %> 
+
+  <% if @article.undiscard %>
+    <% if can? :destroy, @article %>
+      <li class="btn btn-danger">
+        <%= link_to "Arhive", arhive_article_path(@article),
+                                data: {
+                                turbo_method: :delete,
+                                turbo_confirm: "Are you sure?"
+                                } %>
+      </li>
+    <% end %>    
+  <% else %>
+      <li class="btn btn-primary">
+        <%= link_to "Restore", restore_article_path(@article),
+                                data: {
+                                turbo_method: :delete,
+                                turbo_confirm: "Are you sure?"
+                                } %>
+      </li>
+  <% end %>
 </ul>
 
 <div class="row" id="comment">
@@ -42,9 +62,9 @@
   <div class="col-12 col-lg-6 mb-3 mx-auto" id="addcommentform"> 
     <h2 class="border-bottom">Add a comment</h2> 
     <% if user_signed_in? %>
-    <%= render 'comments/form' %> 
+      <%= render 'comments/form' %> 
   </div>
-  <% else %>
-    <p>Only users with verified accounts can leave comments.</p>
-  <% end %>
+    <% else %>
+      <p>Only users with verified accounts can leave comments.</p>
+    <% end %>
 </div>

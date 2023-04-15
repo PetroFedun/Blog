@@ -1,9 +1,8 @@
-<% provide(:title, "Articles") %>
+<% provide(:title, "Arhived") %>
 
-<h1 class="title">Articles</h1>
+<h1 class="title">Arhived</h1>
 
-<% if @articles.present? %>
-  <div class="row justify" id="card-flex">
+<div class="row justify" id="card-flex">
     <% @articles.each do |article| %>
       <div class="card col-12 col-sm-6 mb-4 m-2" id="card">
         <%= link_to article do %>
@@ -26,10 +25,3 @@
     </div>
   <% end %>
 </div>
-
-<% else %>
-  <div class="p-5 m-5 text-center bg-primary bg-gradient text-white">
-    <h2 class="mb-4">There is no article yet</h2>
-    <%= link_to "Create a first article", new_article_path, class: "btn btn-light" %>
-  </div>
-<% end %>
