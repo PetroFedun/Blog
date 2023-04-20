@@ -15,8 +15,6 @@ gem 'jbuilder'
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'bootsnap', require: false
 gem 'jquery-rails'
-
-# html
 gem 'bootstrap', '~> 5.0.2'
 
 # features 

@@ -5,7 +5,7 @@
 <%- if @article.preview_img.present? %>
   <%= image_tag @article.preview_img, class:"card-img-top mx-auto", id:"showimg" %>
 <% else %>
-  <img src="<%= asset_path('panda.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
+  <img src="<%= asset_path('default-image.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
 <% end %>
 
 <p class="h-auto mx-auto lh-lg py-2 px-1" id="articlebody"><%= @article.body %></p>
@@ -20,31 +20,25 @@
   <% if can? :destroy, @article %>
     <li class="btn btn-danger">
       <%= link_to "Destroy", article_path(@article),
-                              data: {
-                               turbo_method: :delete,
-                               turbo_confirm: "Are you sure?"
-                             } %>
-      </li>
-  <% end %> 
+                            data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                            } %>
+    </li>
+  <% end %>
 
-  <% if @article.undiscard %>
-    <% if can? :destroy, @article %>
-      <li class="btn btn-danger">
-        <%= link_to "Arhive", arhive_article_path(@article),
-                                data: {
-                                turbo_method: :delete,
-                                turbo_confirm: "Are you sure?"
-                                } %>
+  <% if @article.undiscarded? %>
+    <% if can? :arhive, @article %>
+      <li class="btn">
+        <%= button_to "Arhive", arhive_article_path(@article), method: :patch, class: "btn btn-danger" %>
       </li>
-    <% end %>    
+    <% end %>
   <% else %>
-      <li class="btn btn-primary">
-        <%= link_to "Restore", restore_article_path(@article),
-                                data: {
-                                turbo_method: :delete,
-                                turbo_confirm: "Are you sure?"
-                                } %>
+    <% if can? :restore, @article %>
+      <li class="btn">
+        <%= button_to "Restore", restore_article_path(@article), method: :patch, class: "btn btn-primary" %>
       </li>
+    <% end %>
   <% end %>
 </ul>
 
