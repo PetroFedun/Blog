@@ -10,5 +10,7 @@ class Ability
     can :read, Article, author_id: user.id
     can :edit, Article, author_id: user.id
     can :destroy, Article, author_id: user.id
+    can :arhive, Article, author_id: user.id
+    can :restore, Article, author_id: user.id
   end
 end

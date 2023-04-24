@@ -1,6 +1,7 @@
 <% provide(:title, "Articles") %>
 
 <h1 class="title">Articles</h1>
+
 <% if @articles.present? %>
   <div class="row justify" id="card-flex">
     <% @articles.each do |article| %>
@@ -11,7 +12,7 @@
               <%= image_tag article.preview_img, class:"card-img-top", style:"padding-top: 12px; max-height:230px; max-width:550px;" %>
             </div>
         <% else %>
-          <img src="<%= asset_path('panda.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
+          <img src="<%= asset_path('default-article-img.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
         <% end %>
       <% end %>
 

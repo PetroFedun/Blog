@@ -5,7 +5,7 @@
 <%- if @article.preview_img.present? %>
   <%= image_tag @article.preview_img, class:"card-img-top mx-auto", id:"showimg" %>
 <% else %>
-  <img src="<%= asset_path('panda.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
+  <img src="<%= asset_path('default-article-img.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
 <% end %>
 
 <p class="h-auto mx-auto lh-lg py-2 px-1" id="articlebody"><%= @article.body %></p>
@@ -20,12 +20,26 @@
   <% if can? :destroy, @article %>
     <li class="btn btn-danger">
       <%= link_to "Destroy", article_path(@article),
-                              data: {
-                               turbo_method: :delete,
-                               turbo_confirm: "Are you sure?"
-                             } %>
+                            data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                            } %>
+    </li>
+  <% end %>
+
+  <% if @article.undiscarded? %>
+    <% if can? :arhive, @article %>
+      <li class="btn" style="margin-left: -12px;">
+        <%= button_to "Arhive", arhive_article_path(@article), method: :patch, class: " btn btn-danger" %>
       </li>
-  <% end %>    
+    <% end %>
+  <% else %>
+    <% if can? :restore, @article %>
+      <li class="btn" style="margin-left: -12px;">
+        <%= button_to "Restore", restore_article_path(@article), method: :patch, class: "btn btn-primary" %>
+      </li>
+    <% end %>
+  <% end %>
 </ul>
 
 <div class="row" id="comment">
@@ -42,9 +56,9 @@
   <div class="col-12 col-lg-6 mb-3 mx-auto" id="addcommentform"> 
     <h2 class="border-bottom">Add a comment</h2> 
     <% if user_signed_in? %>
-    <%= render 'comments/form' %> 
+      <%= render 'comments/form' %> 
   </div>
-  <% else %>
-    <p>Only users with verified accounts can leave comments.</p>
-  <% end %>
+    <% else %>
+      <p>Only users with verified accounts can leave comments.</p>
+    <% end %>
 </div>

@@ -1,16 +1,21 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show edit update destroy]
+  before_action :set_article, only: %i[edit update destroy restore arhive]
 
   def index
-    @articles = current_user.articles
+    @articles = Article.kept
   end 
 
   def show
+    @article = Article.find(params[:id])
+  end  
+
+  def archived_articles
+    @archived_articles = current_user.articles.discarded
   end  
 
   def new
+    authenticate_user!
     @article = Article.new
-    authorize! :create, @article
   end
 
   def create
@@ -25,12 +30,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    authorize! :edit, @article
   end
 
   def update
-    authorize! :edit, @article
-
     if @article.update(article_params)
       flash[:success] = "Article updated!"
       redirect_to @article
@@ -39,9 +41,22 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def arhive
+    @article.discard
+    flash[:success] = "Article arhived!"
+
+    redirect_to root_path, status: :see_other
+  end
+
+  def restore
+    @article.undiscard
+    flash[:success] = "Article restored!"
+
+    redirect_to root_path, status: :see_other
+  end
+
   def destroy
     @article.destroy
-    authorize! :destroy, @article
     flash[:success] = "Article deleted!"
 
     redirect_to root_path, status: :see_other
