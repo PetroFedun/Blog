@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: %i[create new] 
   before_action :set_article, only: %i[edit update destroy restore arhive]
 
   def index
@@ -15,6 +14,7 @@ class ArticlesController < ApplicationController
   end  
 
   def new
+    authenticate_user!
     @article = Article.new
   end
 
@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
 
   def restore
     @article.undiscard
-    flash[:success] = "Article restore!"
+    flash[:success] = "Article restored!"
 
     redirect_to root_path, status: :see_other
   end
