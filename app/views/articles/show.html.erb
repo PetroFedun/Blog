@@ -29,13 +29,13 @@
 
   <% if @article.undiscarded? %>
     <% if can? :arhive, @article %>
-      <li class="btn">
-        <%= button_to "Arhive", arhive_article_path(@article), method: :patch, class: "btn btn-danger" %>
+      <li class="btn" style="margin-left: -12px;">
+        <%= button_to "Arhive", arhive_article_path(@article), method: :patch, class: " btn btn-danger" %>
       </li>
     <% end %>
   <% else %>
     <% if can? :restore, @article %>
-      <li class="btn">
+      <li class="btn" style="margin-left: -12px;">
         <%= button_to "Restore", restore_article_path(@article), method: :patch, class: "btn btn-primary" %>
       </li>
     <% end %>
