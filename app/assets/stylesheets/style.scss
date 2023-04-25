@@ -107,7 +107,7 @@ footer {
 }
 
 #card-flex {
-  justify-content: flex-start;
+  padding-left: 9px;
 }
 
 #feedbackform {
@@ -163,7 +163,18 @@ footer {
 
 @media (max-width: 1400px) {
   #card-flex {
-    justify-content: space-around;
+    justify-content: space-between;
+  }
+  #card {
+    width: 20rem;
+    box-sizing: content-box;
+  }
+}
+
+@media (max-width: 1200px) {
+  #card {
+    width: 25rem;
+    box-sizing: content-box;
   }
 
 }
@@ -194,7 +205,7 @@ footer {
     width: 100%;
   }
   #card{
-    width: 54rem;
+    width: 18rem;
     box-sizing: content-box;
   }
   #comment{
@@ -207,7 +218,7 @@ footer {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px)  {
   footer {
     small {
       display: block;
@@ -222,5 +233,10 @@ footer {
         margin-left: 0;
       }
     }
+  }
+  #card {
+    width: 30rem;
+    justify-content: center;
+    box-sizing: content-box;
   }
 }
