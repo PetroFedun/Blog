@@ -1,18 +1,16 @@
 <% provide(:title, "Articles") %>
 
-<% if user_signed_in? %>
-  <ul class="nav justify-content-between">
-    <li><%= link_to "Arhived articles",  archived_articles_path, class: "btn btn-primary" %></li>
-    <li><%= link_to "New Article", new_article_path, class: "btn btn-primary" %></li>
-  </ul>
-  <h1 class="title" style="margin-top: -3rem;">Articles</h1>
-<% else %>
-  <h1 class="title">Articles</h1>
-<% end %>  
+<h1 class="title">Articles</h1>
 
+<% if user_signed_in? %>
+  <ul class="nav mx-3 justify-content-between">
+    <li><%= link_to "Arhived articles",  archived_articles_path, class: "btn btn-primary" %></li>
+    <li><%= link_to "New Article", new_article_path, class: "btn btn-primary right-margin" %></li>
+  </ul>
+<% end %>
 
 <% if @articles.present? %>
-  <div class="row justify mx-auto" id="card-flex">
+  <div class="row mx-auto" id="card-flex">
     <% @articles.each do |article| %>
       <div class="card col-12 col-sm-6 mb-4 m-2" id="card">
         <%= link_to article do %>
@@ -35,6 +33,7 @@
     </div>
   <% end %>
 </div>
+
 
 <% else %>
   <div class="p-5 m-5 text-center bg-primary bg-gradient text-white">

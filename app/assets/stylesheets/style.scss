@@ -155,6 +155,7 @@ footer {
 }
 
 #card {
+  justify-content: flex-start;
   width: 24rem;
   box-sizing: content-box;
 }
@@ -163,11 +164,14 @@ footer {
 
 @media (max-width: 1400px) {
   #card-flex {
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   #card {
     width: 20rem;
     box-sizing: content-box;
+  }
+  .right-margin {
+    margin-right: 13px;
   }
 }
 
@@ -176,7 +180,9 @@ footer {
     width: 25rem;
     box-sizing: content-box;
   }
-
+  .right-margin {
+    margin-right: 35px;
+  }
 }
 @media (max-width: 991px) {
   #contact {
@@ -216,27 +222,21 @@ footer {
     margin-top: 1rem;
    }
   }
+  .right-margin {
+    margin-right: 20px;
+  }
 }
 
 @media (max-width: 768px)  {
-  footer {
-    small {
-      display: block;
-      float: none;
-      margin-bottom: 1em;
-    }
-    ul {
-      float: none;
-      padding: 0;
-      li {
-        float: none;
-        margin-left: 0;
-      }
-    }
-  }
   #card {
     width: 30rem;
     justify-content: center;
     box-sizing: content-box;
+  }
+  .right-margin {
+    margin-right: -20px;
+  }
+  .title {
+    width: 60%;
   }
 }
