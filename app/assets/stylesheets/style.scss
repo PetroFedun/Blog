@@ -2,6 +2,22 @@
 
 /* universal */
 
+html {
+  height: 100%;
+}
+
+.center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+}
+
 .container {
   line-height: 2;
 }
@@ -63,7 +79,9 @@ a, a:hover, a:active {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   padding-top: 5px;
   border-top: 1px solid rgb(201, 201, 201);
   color: gray;

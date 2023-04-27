@@ -12,7 +12,7 @@
 <% if @articles.present? %>
   <%= render 'articles/article', object: @articles %>
 <% else %>
-  <div class="p-5 m-5 text-center bg-primary bg-gradient text-white">
+  <div class="p-5 m-5 text-center bg-primary bg-gradient text-white w-50%">
     <h2 class="mb-4">There is no article yet</h2>
     <%= link_to "Create a first article", new_article_path, class: "btn btn-light" %>
   </div>

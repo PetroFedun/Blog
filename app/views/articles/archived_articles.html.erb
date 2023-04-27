@@ -5,7 +5,7 @@
 <% if @archived_articles.present? %>
   <%= render 'articles/article', object: @archived_articles %>
 <% else %>
-  <div class="p-5 m-5 text-center bg-primary bg-gradient text-white">
-    <h2 class="mb-4">There is no arhived article yet</h2>
+  <div class="center-absolute">
+    <h2>There is no archived article yet</h2>
   </div>
 <% end %>
