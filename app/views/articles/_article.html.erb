@@ -1,0 +1,23 @@
+<div class="row mx-auto" id="card-flex">
+  <% object.each do |article| %>
+    <div class="card col-12 col-sm-6 mb-4 m-2" id="card">
+      <%= link_to article do %>
+        <% if article.preview_img.present? %>
+          <div class="text-center">
+            <%= image_tag article.preview_img, class:"card-img-top", style:"padding-top: 12px; max-height:230px; max-width:550px;" %>
+          </div>
+        <% else %>
+          <img src="<%= asset_path('default-article-img.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
+        <% end %>
+      <% end %>
+
+      <div class="card-body">
+        <h5 class="card-title"><%= article.title.truncate(70, omission: '...') %></h5>
+        <p class="card-text"><%= article.body.truncate_words(10, omission: '...') %></p>
+        <%= link_to article do %>
+          <button class="btn btn-primary">View</button>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
