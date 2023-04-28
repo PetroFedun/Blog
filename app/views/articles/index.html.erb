@@ -10,7 +10,7 @@
 <% end %>
 
 <% if @articles.present? %>
-  <%= render 'articles/article', object: @articles %>
+  <%= render 'articles/articles', article: @articles %>
 <% else %>
   <div class="p-5 m-5 text-center bg-primary bg-gradient text-white w-50%">
     <h2 class="mb-4">There is no article yet</h2>

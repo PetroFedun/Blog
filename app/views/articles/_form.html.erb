@@ -1,6 +1,6 @@
 <%= render 'shared/errors', object: @article %>
 
-<div class="container py-3 mt-5 p-5 border" id="newform">
+<div class="container py-3 mt-5 p-5 border form-width">
   <%= form_with model: article do |form| %>
     <div class="mb-3">   
       <%= form.label :title, for:"exampleInput", class:"form-label mb-3" %>
