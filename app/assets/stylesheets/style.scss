@@ -44,11 +44,11 @@ a, a:hover, a:active {
 
 #menu {
   li {
-    padding: auto 20px 0 0;
+    padding-right: 20px;
   }
   a:hover {
     text-decoration: none;
-    color: rgb(240, 240, 240);
+    color: $light_gray;
   }
 }
 
