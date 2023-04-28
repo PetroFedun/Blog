@@ -1,6 +1,16 @@
 @import "bootstrap";
 
-/* universal */
+/* Declaration of color variables */
+
+$white: #fff;
+$gray: gray;
+$light_gray: #f0f0f0;
+$semi_transparent_gray: #cccccc99;
+$deep_red: #842029;
+$light_pink: #f8d7da;
+$dark_green: #0f5132;
+
+/* Universal */
 
 html {
   height: 100%;
@@ -17,10 +27,10 @@ body {
 
 a, a:hover, a:active { 
   text-decoration: none; 
-  color: #fff; 
+  color: $white; 
 }
 
-/* header */
+/* Header */
 
 #logo {
   float: left;
@@ -29,14 +39,12 @@ a, a:hover, a:active {
   font-weight: bold;
   letter-spacing: -1px;
   text-transform: uppercase; 
-  color: rgb(255, 255, 255);
+  color: $white;
 }
 
 #menu {
   li {
-    padding-right: auto;
-    padding-top: auto;
-    margin-right: 20px;
+    padding: auto 20px 0 0;
   }
   a:hover {
     text-decoration: none;
@@ -56,13 +64,13 @@ a, a:hover, a:active {
   margin: 5px 9px;
 }
 
-/* main */
+/* Main */
 
 .title {
   width: 50%;
   margin: 16px auto;
   text-align: center;
-  border-bottom: 1px solid rgba(207, 207, 207, 0.6);
+  border-bottom: 1px solid $semi_transparent_gray;
 }
 
 .center-absolute {
@@ -96,8 +104,7 @@ a, a:hover, a:active {
 }
 
 #comment {
-  padding-top: 50px;
-  padding-right: 12px;
+  padding: 50px 12px 0 0;
   flex-direction: row-reverse;
   h2 {
     margin-bottom: 32px;
@@ -106,7 +113,7 @@ a, a:hover, a:active {
 
 #card {
   justify-content: flex-start;
-  width: 384px;
+  width: 385px;
   box-sizing: content-box;
 }
 
@@ -114,19 +121,19 @@ a, a:hover, a:active {
   width: 75%;
 }
 
-/* footer */
+/* Footer */
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   padding-top: 5px;
-  border-top: 1px solid rgb(201, 201, 201);
-  color: gray;
+  border-top: 1px solid $semi_transparent_gray;
+  color: $gray;
   a {
-    color: gray;
+    color: $gray;
     &:hover {
-      color: gray;
+      color: $gray;
     }
   }
   p {
@@ -145,28 +152,30 @@ footer {
 /* Flash notice */
 
 .alert-notice {
-  color: #0f5132;
-  background-color: #d1e7dd;
-  border-color: #badbcc;
+  color: $dark_green;
+  background-color: $white;
+  border-color: $white;
 }
 
 .alert-alert {
-  color: #842029;
-  background-color: #f8d7da;
-  border-color: #f5c2c7;
+  color: $deep_red;
+  background-color: $light_pink;
+  border-color: $light_pink;
 }
 
 .alert-errors {
-  color: #842029;
-  background-color: #f8d7da;
-  border-color: #f5c2c7;
+  color: $deep_red;
+  background-color: $light_pink;
+  border-color: $light_pink;
 }
 
 /* Media queries */
 
+/* Max-width: 1400px */
+
 @media (max-width: 1400px) {
   #card {
-    width: 20rem;
+    width: 320px;
     box-sizing: content-box;
   }
 
@@ -175,9 +184,11 @@ footer {
   }
 }
 
+/* Max-width: 1200px */
+
 @media (max-width: 1200px) {
   #card {
-    width: 25rem;
+    width: 400px;
     box-sizing: content-box;
   }
 
@@ -185,11 +196,14 @@ footer {
     margin-right: 35px;
   }
 }
+
+/* Max-width: 991px */
+
 @media (max-width: 991px) {
   .form-width {
     width: 100%;
     padding: 10px;
-    border: 1px solid rgba(207, 207, 207, 0.6);
+    border: 1px solid $gray;
   }
 
   .showing {
@@ -207,7 +221,7 @@ footer {
   }
 
   #card {
-    width: 18rem;
+    width: 290px;
     box-sizing: content-box;
   }
 
@@ -215,8 +229,7 @@ footer {
     flex-direction: column-reverse;
     padding-top: 15px;
     h2 {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin: 15px 0;
    }
   }
 
@@ -225,9 +238,11 @@ footer {
   }
 }
 
+/* Max-width: 768px */
+
 @media (max-width: 768px)  {
   #card {
-    width: 30rem;
+    width: 480px;
     justify-content: center;
     box-sizing: content-box;
   }
