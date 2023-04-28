@@ -1,66 +1,64 @@
-<main>  
-  <% provide(:title, @article.title) %>
+<% provide(:title, @article.title) %>
 
-  <h1 class="my-5 border-bottom"><%= @article.title %></h1>
+<h1 class="my-5 border-bottom"><%= @article.title %></h1>
 
-  <%- if @article.preview_img.present? %>
-    <%= image_tag @article.preview_img, class:"card-img-top mx-auto showing" %>
-  <% else %>
-    <img src="<%= asset_path('default-article-img.jpg') %>" class="card-img-top mx-auto showing" alt="...">
+<%- if @article.preview_img.present? %>
+  <%= image_tag @article.preview_img, class:"card-img-top mx-auto showing" %>
+<% else %>
+  <img src="<%= asset_path('default-article-img.jpg') %>" class="card-img-top mx-auto showing" alt="...">
+<% end %>
+
+<p class="h-auto mx-auto lh-lg py-2 px-1" id="articlebody"><%= @article.body %></p>
+
+<ul>
+  <% if can? :edit, @article %>
+    <li class="btn btn-primary">
+      <%= link_to "Edit", edit_article_path(@article) %>
+    </li>
   <% end %>
 
-  <p class="h-auto mx-auto lh-lg py-2 px-1" id="articlebody"><%= @article.body %></p>
+  <% if can? :destroy, @article %>
+    <li class="btn btn-danger">
+      <%= link_to "Destroy", article_path(@article),
+                            data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                            } %>
+    </li>
+  <% end %>
 
-  <ul>
-    <% if can? :edit, @article %>
-      <li class="btn btn-primary">
-        <%= link_to "Edit", edit_article_path(@article) %>
+  <% if @article.undiscarded? %>
+    <% if can? :arhive, @article %>
+      <li class="btn" style="margin-left: -12px;">
+        <%= button_to "Arhive", arhive_article_path(@article), method: :patch, class: " btn btn-danger" %>
       </li>
     <% end %>
-
-    <% if can? :destroy, @article %>
-      <li class="btn btn-danger">
-        <%= link_to "Destroy", article_path(@article),
-                              data: {
-                              turbo_method: :delete,
-                              turbo_confirm: "Are you sure?"
-                              } %>
+  <% else %>
+    <% if can? :restore, @article %>
+      <li class="btn" style="margin-left: -12px;">
+        <%= button_to "Restore", restore_article_path(@article), method: :patch, class: "btn btn-primary" %>
       </li>
     <% end %>
+  <% end %>
+</ul>
 
-    <% if @article.undiscarded? %>
-      <% if can? :arhive, @article %>
-        <li class="btn" style="margin-left: -12px;">
-          <%= button_to "Arhive", arhive_article_path(@article), method: :patch, class: " btn btn-danger" %>
-        </li>
-      <% end %>
-    <% else %>
-      <% if can? :restore, @article %>
-        <li class="btn" style="margin-left: -12px;">
-          <%= button_to "Restore", restore_article_path(@article), method: :patch, class: "btn btn-primary" %>
-        </li>
-      <% end %>
+<div class="row" id="comment">
+  <div class="col-12 col-lg-6 mb-3 mx-auto"> 
+    <h2 class="border-bottom">Comments</h2>
+    <% if @article.comments.present? %>
+      <%= render @article.comments %> 
+    <% else %>      
+      <p>This post doesn't have any comments</p>
     <% end %>
-  </ul>
-
-  <div class="row" id="comment">
-    <div class="col-12 col-lg-6 mb-3 mx-auto"> 
-      <h2 class="border-bottom">Comments</h2>
-      <% if @article.comments.present? %>
-        <%= render @article.comments %> 
-      <% else %>      
-        <p>This post doesn't have any comments</p>
-      <% end %>
-    </div> 
+  </div> 
 
 
-    <div class="col-12 col-lg-6 mb-3 mx-auto" id="addcommentform"> 
-      <h2 class="border-bottom">Add a comment</h2> 
-      <% if user_signed_in? %>
-        <%= render 'comments/form' %> 
-    </div>
-      <% else %>
-        <p>Only users with verified accounts can leave comments.</p>
-      <% end %>
+  <div class="col-12 col-lg-6 mb-3 mx-auto" id="addcommentform"> 
+    <h2 class="border-bottom">Add a comment</h2> 
+    <% if user_signed_in? %>
+      <%= render 'comments/form' %> 
   </div>
-</main>
+    <% else %>
+      <p>Only users with verified accounts can leave comments.</p>
+    <% end %>
+</div>

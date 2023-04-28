@@ -1,13 +1,11 @@
-<main>
-  <% provide(:title, "Arhived articles") %>
+<% provide(:title, "Arhived articles") %>
 
-  <h1 class="title">Arhived articles</h1>
+<h1 class="title">Arhived articles</h1>
 
-  <% if @archived_articles.present? %>
-    <%= render 'articles/articles', article: @archived_articles %>
-  <% else %>
-    <div class="center-absolute">
-      <h2>There is no archived articles yet</h2>
-    </div>
-  <% end %>
-</main>
+<% if @archived_articles.present? %>
+  <%= render 'articles/articles', articles: @archived_articles %>
+<% else %>
+  <div class="center-absolute">
+    <h2>There is no archived articles yet</h2>
+  </div>
+<% end %>
