@@ -1,19 +1,21 @@
-<% provide(:title, "Articles") %>
+<main>  
+  <% provide(:title, "Articles") %>
 
-<h1 class="title">Articles</h1>
+  <h1 class="title">Articles</h1>
 
-<% if user_signed_in? %>
-  <ul class="nav mx-3 justify-content-between">
-    <li><%= link_to "Arhived articles",  archived_articles_path, class: "btn btn-primary" %></li>
-    <li><%= link_to "New Article", new_article_path, class: "btn btn-primary right-margin" %></li>
-  </ul>
-<% end %>
+  <% if user_signed_in? %>
+    <ul class="nav mx-3 justify-content-between">
+      <li><%= link_to "Arhived articles",  archived_articles_path, class: "btn btn-primary" %></li>
+      <li><%= link_to "New Article", new_article_path, class: "btn btn-primary right-margin" %></li>
+    </ul>
+  <% end %>
 
-<% if @articles.present? %>
-  <%= render 'articles/articles', article: @articles %>
-<% else %>
-  <div class="p-5 m-5 text-center bg-primary bg-gradient text-white w-50%">
-    <h2 class="mb-4">There is no article yet</h2>
-    <%= link_to "Create a first article", new_article_path, class: "btn btn-light" %>
-  </div>
-<% end %>
+  <% if @articles.present? %>
+    <%= render 'articles/articles', article: @articles %>
+  <% else %>
+    <div class="p-5 m-5 text-center bg-primary bg-gradient text-white w-50%">
+      <h2 class="mb-4">There is no article yet</h2>
+      <%= link_to "Create a first article", new_article_path, class: "btn btn-light" %>
+    </div>
+  <% end %>
+</main>

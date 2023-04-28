@@ -1,21 +1,23 @@
-<% provide(:title, "Forgot your password") %>
+<main>  
+  <% provide(:title, "Forgot your password") %>
 
-<h1 class="title">Forgot your password?</h1>
+  <h1 class="title">Forgot your password?</h1>
 
-<%= render "devise/shared/error_messages", resource: resource %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class="mt-5 border p-5 mx-auto form-width">
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="mt-5 border p-5 mx-auto form-width">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
-    <div class="field mb-3">
-      <%= f.label :email, class:"form-label" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control bg-light" %>
-    </div>
+      <div class="field mb-3">
+        <%= f.label :email, class:"form-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control bg-light" %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "Send me reset password instructions", class:"btn btn-primary" %>
-    </div>
-  <% end %>
-</div>
+      <div class="actions">
+        <%= f.submit "Send me reset password instructions", class:"btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</main>
