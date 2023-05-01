@@ -3,9 +3,9 @@
 <h1 class="title">Articles</h1>
 
 <% if user_signed_in? %>
-  <ul class="nav mx-3 justify-content-between">
+  <ul class="nav mx-4 justify-content-between">
     <li><%= link_to "Arhived articles",  archived_articles_path, class: "btn btn-primary" %></li>
-    <li><%= link_to "New Article", new_article_path, class: "btn btn-primary mx-4 mx-xl-3" %></li>
+    <li><%= link_to "New Article", new_article_path, class: "btn btn-primary" %></li>
   </ul>
 <% end %>
 

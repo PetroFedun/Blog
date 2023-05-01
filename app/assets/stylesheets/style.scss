@@ -86,21 +86,32 @@ a, a:hover, a:active {
 
 .article-preview-img {
   width: 100%;
-  max-height:230px;
-  max-width:550px;
+  max-height: 230px;
+  max-width: 550px;
   padding-top: 12px;
-  border-top-left-radius: calc(.25rem - 1px);
-  border-top-right-radius: calc(.25rem - 1px);
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+.article-img {
+  display: block;
+  margin: 12px auto 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+.article-container {
+  display: flex;
+  margin: 0 auto;
+  padding: 5px 15px;
+  justify-content: flex-start;
 }
 
 .custom-form {
   width: 50%;
-}
-
-.showing {
-  display: block;
-  width: 85%;
-  padding-top: 12px;
 }
 
 #articlebody {
@@ -110,6 +121,7 @@ a, a:hover, a:active {
 #comment {
   padding: 50px 12px 0 0;
   flex-direction: row-reverse;
+  
   h2 {
     margin-bottom: 32px;
    }
@@ -134,18 +146,22 @@ footer {
   padding-top: 5px;
   border-top: 1px solid $semi_transparent_gray;
   color: $gray;
+    
     a {
       color: $gray;
       &:hover {
         color: $gray;
       }
     }
+    
     p {
       float: left;
     }
+    
     ul {
       float: right;
       list-style: none;
+      
       li {
         float: left;
         margin-left: 15px;
@@ -188,7 +204,7 @@ footer {
 
 @media (max-width: 1200px) {
   #card {
-    width: 400px;
+    width: 410px;
     box-sizing: content-box;
   }
 }
@@ -202,7 +218,7 @@ footer {
     border: 1px solid $gray;
   }
 
-  .showing {
+  .article_img {
     width: 100%;
     padding-top: 1px;
   }
@@ -211,11 +227,7 @@ footer {
     width: 100%;
     justify-content: center;
   }
-
-  #contact {
-    width: 100%;
-  }
-
+  
   #articlebody {
     width: 100%;
   }
@@ -228,8 +240,9 @@ footer {
   #comment {
     flex-direction: column-reverse;
     padding-top: 15px;
+      
       h2 {
-      margin: 15px 0;
+        margin: 15px 0;
     }
   }
 }
@@ -238,7 +251,7 @@ footer {
 
 @media (max-width: 768px)  {
   #card {
-    width: 480px;
+    width: 445px;
     justify-content: center;
     box-sizing: content-box;
   }

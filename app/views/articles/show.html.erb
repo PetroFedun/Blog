@@ -3,9 +3,9 @@
 <h1 class="my-5 border-bottom"><%= @article.title %></h1>
 
 <%- if @article.preview_img.present? %>
-  <%= image_tag @article.preview_img, class:"card-img-top mx-auto showing" %>
+  <%= image_tag @article.preview_img, class:"article-img" %>
 <% else %>
-  <img src="<%= asset_path('default-article-img.jpg') %>" class="card-img-top mx-auto showing" alt="...">
+  <img src="<%= asset_path('default-article-img.jpg') %>" class="article-img" alt="...">
 <% end %>
 
 <p class="h-auto mx-auto lh-lg py-2 px-1" id="articlebody"><%= @article.body %></p>
