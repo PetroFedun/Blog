@@ -3,33 +3,9 @@
 <h1 class="title">Arhived articles</h1>
 
 <% if @archived_articles.present? %>
-  <div class="row justify" id="card-flex">
-    <% @archived_articles.each do |article| %>
-      <div class="card col-12 col-sm-6 mb-4 m-2" id="card">
-        <%= link_to article do %>
-          <% if article.preview_img.present? %>
-            <div class="text-center">
-              <%= image_tag article.preview_img, class:"card-img-top", style:"padding-top: 12px; max-height:230px; max-width:550px;" %>
-            </div>
-          <% else %>
-            <img src="<%= asset_path('default-image.jpg') %>" class="card-img-top" alt="..." style="padding-top: 12px;">
-          <% end %>
-        <% end %>
-
-        <div class="card-body">
-          <h5 class="card-title"><%= article.title.truncate(70, omission: '...') %></h5>
-          <p class="card-text"><%= article.body.truncate_words(10, omission: '...') %></p>
-          <%= link_to article do %>
-            <button class="btn btn-primary">View</button>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
+  <%= render 'articles/articles', articles: @archived_articles %>
 <% else %>
-  <div class="p-5 m-5 text-center bg-primary bg-gradient text-white">
-    <h2 class="mb-4">There is no article yet</h2>
-    <%= link_to "Create a first article", new_article_path, class: "btn btn-light" %>
+  <div class="center-absolute">
+    <h2>There is no archived articles yet</h2>
   </div>
 <% end %>
