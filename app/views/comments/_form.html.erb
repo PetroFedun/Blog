@@ -1,21 +1,12 @@
-<div class="mt-5 border p-3 mx-auto">
-  <%= form_with model: [ @article, @article.comments.build ] do |form| %>
-    <div>
-      <%= form.label :commenter, for:"exampleInputEmail1", class:"form-label" %>
-      <%= form.text_field :commenter, class:"form-control bg-light", id:"exampleInputEmail1" %>
-    </div>
-    <div>
-      <%= form.label :body, for:"exampleFormControlTextarea1", class:"form-label" %>
-      <%= form.text_area :body, class:"form-control bg-light", id:"exampleFormControlTextarea1", rows:"5" %>
-    </div>
+<div class="mt-3 border p-3 mx-auto">
+  <%= form_with model: [ @article, @article.comments.build ], class: "form" do |form| %>
+    <h4 class="mb-3">
+      <%= form.label :Comment, class:"form-label" %>
+      <%= form.text_area :body, class:"form-control", rows:"6", placeholder:"Comment text" %>
+    </h4>
 
-    <div>
-      <%= form.label :status %>
-      <%= form.select(:status, %w[public private archived], {selected: params[:status]}, {class: 'form-select bg-light'}) %>
-    </div>
-  
-    <div>
-      <%= form.submit class:"btn btn-primary mt-3" %>
+    <div class="mb-3">
+      <%= form.submit class:"btn btn-primary" %>
     </div>
   <% end %>
 </div>

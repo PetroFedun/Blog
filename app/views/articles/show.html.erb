@@ -8,7 +8,7 @@
   <img src="<%= asset_path('default-article-img.jpg') %>" class="article-img" alt="...">
 <% end %>
 
-<p class="h-auto mx-auto lh-lg py-2 px-1" id="articlebody"><%= @article.body %></p>
+<p class="h-auto mx-auto lh-lg py-2 px-1" id="article-body"><%= @article.body %></p>
 
 <ul>
   <% if can? :edit, @article %>
@@ -44,14 +44,13 @@
 
 <div class="row" id="comment">
   <div class="col-12 col-lg-6 mb-3 mx-auto"> 
-    <h2 class="border-bottom">Comments</h2>
+    <h2 class="border-bottom">Comments <%= @article.comments.count %>.</h2>
     <% if @article.comments.present? %>
-      <%= render @article.comments %> 
+        <%= render @article.comments.order(updated_at: :desc) %> 
     <% else %>      
       <p>This post doesn't have any comments</p>
     <% end %>
   </div> 
-
 
   <div class="col-12 col-lg-6 mb-3 mx-auto" id="addcommentform"> 
     <h2 class="border-bottom">Add a comment</h2> 
@@ -59,6 +58,11 @@
       <%= render 'comments/form' %> 
   </div>
     <% else %>
-      <p>Only users with verified accounts can leave comments.</p>
+      <p class="w-75">
+        Unfortunately, you do not have permission to add comments to posts,but you can do this by 
+        <%= link_to "logging",  new_user_session_path, class: "text-primary" %> in to the site.
+        If you don't have an account yet, then
+        <%= link_to "register",  new_user_registration_path, class: "text-primary" %> on the site.
+      </p>
     <% end %>
 </div>
