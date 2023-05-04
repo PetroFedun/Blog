@@ -15,5 +15,6 @@ class Ability
 
     can :update, Comment, author_id: user.id
     can :delete, Comment, article: { author_id: user.id }
+    can :delete, Comment, author_id: user.id
   end
 end
