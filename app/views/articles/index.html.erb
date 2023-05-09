@@ -11,10 +11,6 @@
 
 <% if @articles.present? %>
   <%= render 'articles/articles', articles: @articles %>
-<% elsif user_signed_in? %> 
-  <div class="center-absolute">
-    <h2>There is no articles yet</h2>
-  </div>
 <% else %>
   <div class="p-5 m-5 text-center bg-primary bg-gradient text-white w-50%">
     <h2 class="mb-4">There is no article yet</h2>
