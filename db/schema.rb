@@ -44,6 +44,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_14_130445) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
+    t.string "default"
+    t.string "public"
     t.integer "author_id"
     t.datetime "discarded_at"
     t.index ["author_id"], name: "index_articles_on_author_id"
