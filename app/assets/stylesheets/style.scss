@@ -32,6 +32,10 @@ a, a:hover, a:active {
   color: white; 
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 /* Header */
 
 #logo {
@@ -112,7 +116,7 @@ a, a:hover, a:active {
   width: 50%;
 }
 
-#articlebody {
+#article-body {
   width: 80%;
 }
 
@@ -131,7 +135,7 @@ a, a:hover, a:active {
   box-sizing: content-box;
 }
 
-#feedbackform {
+#feedback-form {
   width: 75%;
 }
 
@@ -221,12 +225,12 @@ footer {
     padding-top: 1px;
   }
 
-  #feedbackform {
+  #feedback-form {
     width: 100%;
     justify-content: center;
   }
 
-  #articlebody {
+  #article-body {
     width: 100%;
   }
 
@@ -256,5 +260,9 @@ footer {
 
   .title {
     width: 60%;
+  }
+
+  footer {
+    font-size: 13px;
   }
 }

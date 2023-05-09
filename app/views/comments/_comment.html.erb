@@ -1,19 +1,30 @@
-<% unless comment.archived? %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
+<div class="card mb-3" style="width: 100%">
+  <div class="card-body">
+    <h5 class="card-title"><%= comment.author_id %></h5>
 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-  <% if can? :destroy, @article %>
-  <p class="btn btn-danger">
-    <%= link_to 'Destroy Comment', [comment.article, comment], data: {
-                  turbo_method: :delete,
-                  turbo_confirm: 'Are you sure?'
-                } %>
-  </p>
-  <% end %>
-<% end %>
+    <h6 class="card-subtitle text-body-secondary">
+      <small class="text-muted">
+        <% if comment.updated_at != comment.created_at %>
+          <%= comment.created_at.in_time_zone('Kyiv').strftime("%m.%d.%y %H:%M") %> (changed)
+        <% else %>
+          <%= comment.created_at.in_time_zone('Kyiv').strftime("%m.%d.%y %H:%M") %>
+        <% end %>
+      </small>
+    </h6>
+
+    <p class="card-text mb-0"><%= comment.body %></p>
+
+    <ul class="p-0 mb-0">
+      <% if can? :delete, comment %>
+          <%= link_to 'Destroy Comment', [comment.article, comment], data: {
+                    turbo_method: :delete,
+                    turbo_confirm: 'Are you sure?'
+                    }, class: 'card-link text-secondary underline' %>
+      <% end %>            
+
+      <% if can? :update, comment %>
+        <%= link_to 'Edit Comment', [:edit, comment.article ,comment], class: 'card-link text-secondary underline' %>
+      <% end %>
+    </ul>
+  </div>
+</div>

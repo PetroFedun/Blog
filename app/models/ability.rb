@@ -12,5 +12,9 @@ class Ability
     can :destroy, Article, author_id: user.id
     can :arhive, Article, author_id: user.id
     can :restore, Article, author_id: user.id
+
+    can :update, Comment, author_id: user.id
+    can :delete, Comment, article: { author_id: user.id }
+    can :delete, Comment, author_id: user.id
   end
 end
