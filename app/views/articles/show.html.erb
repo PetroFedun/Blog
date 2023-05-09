@@ -44,7 +44,7 @@
 
 <div class="row" id="comment">
   <div class="col-12 col-lg-6 mb-3 mx-auto"> 
-    <h2 class="border-bottom">Comments <%= @article.comments.count %>.</h2>
+    <h2 class="border-bottom">Comments <spam class="text-secondary fs-4">(<%= @article.comments.count %>)</spam></h2>
     <% if @article.comments.present? %>
         <%= render @article.comments.order(updated_at: :desc) %> 
     <% else %>      

@@ -1,35 +1,30 @@
-<div class="card mb-3"  style="width: 100%">
+<div class="card mb-3" style="width: 100%">
   <div class="card-body">
     <h5 class="card-title"><%= comment.author_id %></h5>
 
-    <p class="card-subtitle mb-2 text-body-secondary">
+    <h6 class="card-subtitle text-body-secondary">
       <small class="text-muted">
         <% if comment.updated_at != comment.created_at %>
-          Modified at: <%= comment.updated_at.in_time_zone('Kyiv').strftime("%m.%d.%y %H:%M") %>
+          <%= comment.created_at.in_time_zone('Kyiv').strftime("%m.%d.%y %H:%M") %> (changed)
         <% else %>
           <%= comment.created_at.in_time_zone('Kyiv').strftime("%m.%d.%y %H:%M") %>
         <% end %>
       </small>
-    </p>
+    </h6>
 
-    <p class="card-text"><%= comment.body %></p>
+    <p class="card-text mb-0"><%= comment.body %></p>
 
-      <ul class="p-0">
+    <ul class="p-0 mb-0">
       <% if can? :delete, comment %>
-        <li class="card-link btn btn-danger">
-            <%= link_to 'Destroy Comment', [comment.article, comment], data: {
-                      turbo_method: :delete,
-                      turbo_confirm: 'Are you sure?'
-                    } %>
-        </li>
+          <%= link_to 'Destroy Comment', [comment.article, comment], data: {
+                    turbo_method: :delete,
+                    turbo_confirm: 'Are you sure?'
+                    }, class: 'card-link text-secondary underline' %>
       <% end %>            
 
       <% if can? :update, comment %>
-        <li class="card-link btn btn-primary mx-0">
-          <%= link_to 'Edit Comment', [:edit, comment.article ,comment] %>
-        </li>
+        <%= link_to 'Edit Comment', [:edit, comment.article ,comment], class: 'card-link text-secondary underline' %>
       <% end %>
-
     </ul>
   </div>
 </div>
