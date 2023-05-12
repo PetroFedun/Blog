@@ -12,8 +12,9 @@
 <% if @articles.present? %>
   <%= render 'articles/articles', articles: @articles %>
 <% else %>
-  <div class="p-5 m-5 text-center bg-primary bg-gradient text-white w-50%">
-    <h2 class="mb-4">There is no article yet</h2>
-    <%= link_to "Create a first article", new_article_path, class: "btn btn-light" %>
+  <div class="text-center mt-1 text-secondary">
+    <h2>Your articles list is empty</h2>
+    <h5>You don't have any articles right now</h5>
+    <img src="<%= asset_path('index-article-img.jpg') %>" class="index-img">
   </div>
 <% end %>

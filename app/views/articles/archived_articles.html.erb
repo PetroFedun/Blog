@@ -5,7 +5,9 @@
 <% if @archived_articles.present? %>
   <%= render 'articles/articles', articles: @archived_articles %>
 <% else %>
-  <div class="center-absolute">
-    <h2>There is no archived articles yet</h2>
-  </div>
+<div class="text-center mt-1 text-secondary">
+  <h2>Your arhived articles list is empty</h2>
+  <h5>You don't have any arhived articles right now</h5>
+  <img src="<%= asset_path('index-article-img.jpg') %>" class="index-img">
+</div>
 <% end %>
