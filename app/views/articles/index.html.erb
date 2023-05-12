@@ -12,7 +12,9 @@
 <% if @articles.present? %>
   <%= render 'articles/articles', articles: @articles %>
 <% else %>
-  <div class="center-absolute">
-    <h2>There is no article yet</h2>
+  <div class="text-center mt-1 text-secondary">
+    <h2>Your articles list is empty</h2>
+    <h5>You don't have any articles right now</h5>
+    <img src="<%= asset_path('index-article-img.jpg') %>" class="index-img">
   </div>
 <% end %>
